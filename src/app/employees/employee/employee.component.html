@@ -1,0 +1,23 @@
+<h1 class="display-4">EMP. REGISTER</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" #id="ngModel" name="id" [(ngModel)]="service.formData.id" placeholder="full name" class="form-control">
+  <div class="form-group">
+    <input #fullName="ngModel" name="fullName" [(ngModel)]="service.formData.fullName" placeholder="full name" class="form-control">
+  <div *ngIf="fullName.invalid && fullName.touched" class="validation-error">Invalid Full Name</div>
+  </div>
+  <div class="form-group">
+      <input #position="ngModel" name="position" [(ngModel)]="service.formData.position" placeholder="position" class="form-control">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input #empCode="ngModel" name="empCode" [(ngModel)]="service.formData.empCode" placeholder="Code" class="form-control">
+          </div>
+        <div class="form-group col-md-6">
+            <input #mobile="ngModel" name="mobile" [(ngModel)]="service.formData.mobile" placeholder="Mobile" class="form-control">
+          </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">SUBMIT</button>
+    </div>
+  
+</form>
