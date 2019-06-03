@@ -1,0 +1,38 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+  </ol>
+</nav>
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+    <div *ngIf='post$ | async as post'>
+      <h1>{{post.title}}</h1>
+      <p>{{post.content}}</p>
+      <p class=''>Last Comment {{post.lastActivity}}</p>
+      <p class='btn btn-info'>Total comments {{post.commentCount}}</p>
+      <h3>AJouter un commentaire</h3>
+      <input [(ngModel)]='formValue' (keyup.enter)='addComment()' >
+      <h3>commentaires recents</h3>
+      <div *ngFor='let comment of comments$ | async'>
+        <p>{{comment.content}}</p>
+        <em >Posté le : {{comment.createdAt }}</em>
+      </div>
+      <!-- comment for the aggrgate function firstore-->
+      <ng-container *ngIf='!comments$'>
+        <div *ngFor='let comment of post.recentComments'>
+          <p>{{comment.content}}</p>
+          <em>Posté le : {{comment.createdAt}}</em>
+        </div>
+      </ng-container>
+      <button (click)='loadMore()'>
+        Tout charger {{post.commentCount }} commentaire
+      </button>
+    </div>
+</div>
+<div class="col-md-4">
+   
+</div>
+</div>
+</div>

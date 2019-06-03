@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "firestorecrud-c5c10",
+    "default": "firestorecrud-c5c10"
+  }
+}
