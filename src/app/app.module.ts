@@ -13,13 +13,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { BlogComponent } from './blog/blog.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
     EmployeeComponent,
     EmployeeListComponent,
-    HomeComponent
+    HomeComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
